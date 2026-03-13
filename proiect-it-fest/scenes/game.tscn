@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bpq6nkgki6vf7"]
 
 [ext_resource type="PackedScene" uid="uid://cpavt6s1fmqwr" path="res://scenes/sursa.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://c3tcqln4leb03" path="res://scenes/grid.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://5a1mssp8yude" path="res://scenes/paning_camera.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=57844600]
+
+[node name="Grid" parent="." unique_id=2071597713 instance=ExtResource("1_yqjtg")]
 
 [node name="Sursa" parent="." unique_id=1182129977 instance=ExtResource("1_uwrxv")]
 voltage = 1.5
@@ -11,5 +15,4 @@ voltage = 1.5
 position = Vector2(52, 0)
 voltage = 1.5
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=71713944]
-zoom = Vector2(4, 4)
+[node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("3_lnu2h")]

@@ -10,12 +10,13 @@ var anod : Marker2D
 var catod : Marker2D
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	input_event.connect(_on_input_event)
 	anod = $Anodm
 	catod = $Catodp
+	# snaping sistem
+	global_position = GridManager.snap(global_position)
 	
 	
 func init(volts: float)->void:
@@ -62,7 +63,8 @@ func end_wire(release_pos: Vector2):
 		temp_wire = null
 	wiring = false
 	wire_start=null	
-	
+
+
 func create_perm_wire(from: Marker2D, to: Marker2D):
 	var wire_scene = preload("res://scenes/wire.tscn")
 	var wire = wire_scene.instantiate()
@@ -78,7 +80,6 @@ func update_cons():
 	for connection in cons:
 		if connection.term_a == anod or connection.term_a == catod or connection.term_b == anod or connection.term_b == catod:
 			connection.update_wire()
-			
 	
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_id: int):
@@ -95,6 +96,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_id: int):
 			if wiring:
 				end_wire(mouse_pos)
 			dragging = false
+			#snapping sistem
+			global_position = GridManager.snap(global_position)
+			update_cons()
 			
 			
 func _input(event: InputEvent) -> void:
@@ -108,7 +112,6 @@ func _input(event: InputEvent) -> void:
 		if wiring:
 			end_wire(get_global_mouse_position())
 		wiring = false
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

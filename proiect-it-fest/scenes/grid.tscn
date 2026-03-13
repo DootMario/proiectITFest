@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://c3tcqln4leb03"]
+[gd_scene format=4 uid="uid://c3tcqln4leb03"]
 
 [ext_resource type="Texture2D" uid="uid://dlsaaycqcqh54" path="res://assets/tilemap.png" id="1_t5fjg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w88cy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5fjg"]
 texture = ExtResource("1_t5fjg")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -76,9 +76,10 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_2s7k2"]
 tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetAtlasSource_w88cy")
+sources/1 = SubResource("TileSetAtlasSource_t5fjg")
 
 [node name="Grid" type="Node2D" unique_id=2071597713]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551322638]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=551322638 groups=["grid"]]
+tile_map_data = PackedByteArray("AAD8//3/AQAAAAAAAAADAP3/AQAEAAAAAAD9//3/AQABAAAAAAD+//3/AQABAAAAAAD///3/AQABAAAAAAAAAP3/AQABAAAAAAABAP3/AQABAAAAAAACAP3/AQABAAAAAAD9/wIAAQACAAIAAAD+/wIAAQACAAIAAAD//wIAAQACAAIAAAAAAAIAAQACAAIAAAABAAIAAQACAAIAAAACAAIAAQACAAIAAAD8/wIAAQAAAAMAAAADAAIAAQABAAMAAAD8//7/AQAAAAEAAAD8////AQAAAAEAAAD8/wAAAQAAAAEAAAD8/wEAAQAAAAEAAAADAP7/AQAEAAEAAAADAP//AQAEAAEAAAADAAAAAQAEAAEAAAADAAEAAQAEAAEAAAD9//7/AQABAAEAAAD+//7/AQABAAEAAAD///7/AQABAAEAAAAAAP7/AQABAAEAAAABAP7/AQABAAEAAAACAP7/AQABAAEAAAD9////AQABAAEAAAD+////AQABAAEAAAD/////AQABAAEAAAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAD9/wAAAQABAAEAAAD+/wAAAQABAAEAAAD//wAAAQABAAEAAAAAAAAAAQABAAEAAAABAAAAAQABAAEAAAACAAAAAQABAAEAAAD9/wEAAQABAAEAAAD+/wEAAQABAAEAAAD//wEAAQABAAEAAAAAAAEAAQABAAEAAAABAAEAAQABAAEAAAACAAEAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_2s7k2")

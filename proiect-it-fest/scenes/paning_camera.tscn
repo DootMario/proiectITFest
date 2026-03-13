@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://5a1mssp8yude"]
+
+[ext_resource type="Script" uid="uid://c6ftvx3gba1bk" path="res://scripts/paning_camera.gd" id="1_kidwg"]
+
+[node name="paningCamera" type="Camera2D" unique_id=853510291]
+script = ExtResource("1_kidwg")
