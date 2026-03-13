@@ -1,5 +1,5 @@
 extends Area2D
-var voltage := 0.0
+@export var voltage := 0.0
 var dragging := false
 var drag_offset := Vector2.ZERO
 const TOLERANCE := 10.0
@@ -44,10 +44,18 @@ func start_wire(start: Marker2D):
 func continue_wire(end_pos:Vector2):
 	if temp_wire and temp_wire.points.size()==2:
 		temp_wire.set_point_position(1, end_pos)
-
+		
+		
+func already(term_a: Marker2D, term_b: Marker2D)->bool:
+	for con in get_tree().get_nodes_in_group("wires"):
+		if [con.term_a, con.term_b]==[term_a, term_b] or [con.term_a, con.term_b]==[term_b, term_a]:
+			return true
+	return false
+	
+	
 func end_wire(release_pos: Vector2):
 	var end_mark = terminal(release_pos)
-	if end_mark!=null and end_mark!=anod and end_mark!=catod:
+	if end_mark!=null and end_mark!=wire_start and not already(wire_start, end_mark):
 		create_perm_wire(wire_start, end_mark)
 	if temp_wire:
 		temp_wire.queue_free()
@@ -60,16 +68,13 @@ func create_perm_wire(from: Marker2D, to: Marker2D):
 	var wire = wire_scene.instantiate()
 	wire.term_a=from
 	wire.term_b=to
-	wire.width=2
-	wire.default_color = Color.GREEN
-	wire.update_wire()
+	wire.voltage = voltage
 	wire.add_to_group("wires")
 	get_tree().current_scene.add_child(wire)
 	
 	
 func update_cons():
 	var cons = get_tree().get_nodes_in_group("wires")
-	print(cons)
 	for connection in cons:
 		if connection.term_a == anod or connection.term_a == catod or connection.term_b == anod or connection.term_b == catod:
 			connection.update_wire()
@@ -96,7 +101,6 @@ func _input(event: InputEvent) -> void:
 	if dragging and event is InputEventMouseMotion:
 		var target = get_global_mouse_position()+drag_offset
 		global_position = target
-		print("detected need to update")
 		update_cons()
 	if wiring and event is InputEventMouseMotion:
 		continue_wire(get_global_mouse_position())

@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cnys5jfif1yxr"]
 
+[ext_resource type="Texture2D" uid="uid://bvvpdx0hrhymw" path="res://assets/cablu3.png" id="1_5mfbr"]
 [ext_resource type="Script" uid="uid://bk8dki7sknso1" path="res://scripts/wire.gd" id="1_oh5q0"]
 
 [node name="Wire" type="Line2D" unique_id=1192321995]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("1_5mfbr")
+texture_mode = 1
 script = ExtResource("1_oh5q0")
