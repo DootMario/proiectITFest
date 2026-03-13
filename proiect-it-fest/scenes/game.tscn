@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bpq6nkgki6vf7"]
+
+[ext_resource type="PackedScene" uid="uid://cpavt6s1fmqwr" path="res://scenes/sursa.tscn" id="1_uwrxv"]
+
+[node name="Game" type="Node2D" unique_id=57844600]
+
+[node name="Sursa" parent="." unique_id=1182129977 instance=ExtResource("1_uwrxv")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=71713944]
+zoom = Vector2(3, 3)

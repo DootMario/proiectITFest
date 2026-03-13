@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cpavt6s1fmqwr"]
+
+[ext_resource type="Script" uid="uid://c2aq1k8eogcoj" path="res://scripts/sursa.gd" id="1_o1jp1"]
+[ext_resource type="Texture2D" uid="uid://deorrfym3bq4m" path="res://assets/baterie_mica2.png" id="2_en0xd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3iq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0exa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_en0xd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_en0xd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i0exa"]
+
+[node name="Sursa" type="Area2D" unique_id=1182129977]
+script = ExtResource("1_o1jp1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701502048]
+shape = SubResource("RectangleShape2D_xa3iq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1661422853]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_i0exa")
+
+[node name="anod-" type="Area2D" parent="." unique_id=1783257722]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="anod-" unique_id=2027495177]
+shape = SubResource("CircleShape2D_en0xd")
+
+[node name="catod+" type="Area2D" parent="." unique_id=1392059599]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="catod+" unique_id=88410653]
+shape = SubResource("CircleShape2D_i0exa")
