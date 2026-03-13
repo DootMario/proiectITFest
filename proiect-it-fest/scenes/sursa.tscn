@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://deorrfym3bq4m" path="res://assets/baterie_mica2.png" id="2_en0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3iq"]
+size = Vector2(20, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i0exa"]
 animations = [{
@@ -16,10 +17,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_en0xd"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_i0exa"]
-
 [node name="Sursa" type="Area2D" unique_id=1182129977]
 script = ExtResource("1_o1jp1")
 
@@ -30,12 +27,8 @@ shape = SubResource("RectangleShape2D_xa3iq")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_i0exa")
 
-[node name="anod-" type="Area2D" parent="." unique_id=1783257722]
+[node name="Anodm" type="Marker2D" parent="." unique_id=1020873962 groups=["terminals"]]
+position = Vector2(0, 15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="anod-" unique_id=2027495177]
-shape = SubResource("CircleShape2D_en0xd")
-
-[node name="catod+" type="Area2D" parent="." unique_id=1392059599]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="catod+" unique_id=88410653]
-shape = SubResource("CircleShape2D_i0exa")
+[node name="Catodp" type="Marker2D" parent="." unique_id=1814133978 groups=["terminals"]]
+position = Vector2(0, -15)

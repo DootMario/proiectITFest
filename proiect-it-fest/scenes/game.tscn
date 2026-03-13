@@ -6,5 +6,8 @@
 
 [node name="Sursa" parent="." unique_id=1182129977 instance=ExtResource("1_uwrxv")]
 
+[node name="Sursa2" parent="." unique_id=2112382604 instance=ExtResource("1_uwrxv")]
+position = Vector2(52, 0)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=71713944]
 zoom = Vector2(3, 3)
