@@ -17,3 +17,11 @@ func set_items(items: Array) -> void:
 		var slot = slot_scene.instantiate()
 		slot.setup(item)
 		slot_container.add_child(slot)
+
+# 1. New function to loop through active slots and update them
+func refresh_slots() -> void:
+	if slot_container == null:
+		return
+	for child in slot_container.get_children():
+		if child.has_method("refresh"):
+			child.refresh()
