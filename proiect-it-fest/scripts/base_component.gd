@@ -108,6 +108,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_id: int) -> void:
 			# Snap to grid after release
 			global_position = GridManager.snap(self)
 			update_connected_wires()
+	if Input.is_action_just_pressed("rotate_block"):
+		rotation+=PI/2
 
 # Global input handling (mouse motion, release anywhere)
 func _input(event: InputEvent) -> void:

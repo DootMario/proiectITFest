@@ -17,4 +17,6 @@ position = Vector2(52, 0)
 [node name="Corner" parent="." unique_id=2016170285 instance=ExtResource("4_lbhrr")]
 position = Vector2(6, -57)
 
+[node name="s" parent="." unique_id=1342949210 instance=ExtResource("4_lbhrr")]
+
 [node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("3_lnu2h")]
