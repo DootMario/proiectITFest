@@ -4,22 +4,22 @@
 [ext_resource type="Script" uid="uid://d0sdjap3l2v60" path="res://scripts/switch.gd" id="2_4m6b1"]
 [ext_resource type="Texture2D" uid="uid://cwn05kfxcnkbf" path="res://assets/switch.png" id="3_w78pk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ny1gh"]
-atlas = ExtResource("3_w78pk")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0a5h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnoiq"]
 atlas = ExtResource("3_w78pk")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ri5u6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m6b1"]
+atlas = ExtResource("3_w78pk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w78pk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ny1gh")
+"texture": SubResource("AtlasTexture_nnoiq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a0a5h")
+"texture": SubResource("AtlasTexture_4m6b1")
 }],
 "loop": true,
 "name": &"default",
@@ -35,10 +35,10 @@ voltage_output = 0.0
 position = Vector2(0, -2)
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1661422853]
-sprite_frames = SubResource("SpriteFrames_ri5u6")
+sprite_frames = SubResource("SpriteFrames_w78pk")
 
 [node name="Anodm" parent="." index="2" unique_id=1020873962]
-position = Vector2(-11, 0)
+position = Vector2(-13, 0)
 
 [node name="Catodp" parent="." index="3" unique_id=1814133978]
-position = Vector2(14, 0)
+position = Vector2(13, 0)

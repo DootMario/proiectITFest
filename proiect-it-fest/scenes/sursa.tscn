@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cga2b6o1eo0b8" path="res://assets/dragndrops.png" id="2_en0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3iq"]
-size = Vector2(19, 32)
+size = Vector2(26, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_en0xd"]
 atlas = ExtResource("2_en0xd")
