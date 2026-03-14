@@ -1,6 +1,4 @@
-extends "res://scripts/base_component.gd"
-
-@export var voltage:=0.0
+extends "res://scripts/base_LED.gd"
 
 func _ready():
 	super._ready()

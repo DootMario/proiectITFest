@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ltnkbmyj4tj6"]
+
+[node name="Ui" type="CanvasLayer" unique_id=1453898375]
+
+[node name="Inventory" type="Panel" parent="." unique_id=1234390982]
+offset_right = 40.0
+offset_bottom = 40.0

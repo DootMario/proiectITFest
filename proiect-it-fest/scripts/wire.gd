@@ -17,6 +17,11 @@ func _ready():
 	area.input_event.connect(_on_area_input)
 	update_wire()
 
+# handle voltage transmission
+func supply(obj: Node):
+	pass
+	
+
 func update_wire():
 	if term_a and term_b:
 		clear_points()
@@ -44,4 +49,5 @@ func _on_area_input(viewport, event, shape_idx):
 		print(term_b.get_parent().cons)
 		if not term_b.get_parent().cons:
 			term_b.get_parent().sprite.frame=0
+			#handle voltage transmission
 		queue_free()

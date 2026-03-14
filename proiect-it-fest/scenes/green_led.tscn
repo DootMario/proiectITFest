@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b8qf8ib0pypr2"]
+
+[ext_resource type="PackedScene" uid="uid://b0xujhf3ig3mg" path="res://scenes/red_led.tscn" id="1_h7fqc"]
+[ext_resource type="Texture2D" uid="uid://cga2b6o1eo0b8" path="res://assets/dragndrops.png" id="2_kpug7"]
+[ext_resource type="Script" uid="uid://oy8dg2uckwqk" path="res://scripts/green_led.gd" id="2_sitn4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sitn4"]
+atlas = ExtResource("2_kpug7")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wbxo"]
+atlas = ExtResource("2_kpug7")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15qrg"]
+atlas = ExtResource("2_kpug7")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljn7f"]
+atlas = ExtResource("2_kpug7")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfnpf"]
+atlas = ExtResource("2_kpug7")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l53yo"]
+atlas = ExtResource("2_kpug7")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1gtl"]
+atlas = ExtResource("2_kpug7")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2si5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sitn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wbxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15qrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljn7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfnpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l53yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1gtl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Green_LED" unique_id=402071729 instance=ExtResource("1_h7fqc")]
+script = ExtResource("2_sitn4")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1962585673]
+sprite_frames = SubResource("SpriteFrames_o2si5")

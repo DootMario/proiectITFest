@@ -9,9 +9,11 @@ var temp_wire: Line2D = null
 var sprite : AnimatedSprite2D = null
 var cons :int
 
-# Terminals – assign in the scene (two Marker2D children)
+
+# Terminals
 @export var terminal_left: Marker2D
 @export var terminal_right: Marker2D
+
 
 const CLICK_TOLERANCE := 10.0
 
