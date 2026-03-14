@@ -89,7 +89,15 @@ func update_cons():
 func _on_input_event(viewport: Node, event: InputEvent, shape_id: int):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos = get_global_mouse_position()
+
 		if event.pressed:
+			# Check if any other source is currently busy
+			for cell in GridManager.occupied_cells:
+				var other_source = GridManager.occupied_cells[cell]
+				if is_instance_valid(other_source) and other_source != self:
+					if other_source.wiring or other_source.dragging:
+						return # Stop right here, ignore the click
+
 			var clicked_mark = terminal(mouse_pos)
 			if clicked_mark!=null:
 				start_wire(clicked_mark)
@@ -103,7 +111,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_id: int):
 			#snapping sistem
 			global_position = GridManager.snap(self)
 			update_cons()
-			
 			
 func _input(event: InputEvent) -> void:
 	if dragging and event is InputEventMouseMotion:
