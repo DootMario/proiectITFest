@@ -30,3 +30,6 @@ voltage_required = 0.0
 
 [node name="RedLED" parent="." unique_id=820265490 instance=ExtResource("5_iywne")]
 position = Vector2(-60, 31)
+
+[node name="Sursa3" parent="." unique_id=351839854 instance=ExtResource("1_uwrxv")]
+position = Vector2(-21, 39)

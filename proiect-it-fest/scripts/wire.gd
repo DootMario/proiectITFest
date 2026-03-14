@@ -41,6 +41,9 @@ func update_collision_polygon():
 
 func _on_area_input(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-		remove_from_group("wires")
-		CircuitManager.evaluate_circuits()
+		
+		# 1. Mark for death
 		queue_free()
+		
+		# 2. Check for cycles immediately
+		CircuitManager.evaluate_circuits()

@@ -16,3 +16,4 @@ func create_wire(from: Marker2D, to: Marker2D) -> void:
 	cons+=1
 	to.get_parent().cons+=1
 	wire.supply(to)
+	CircuitManager.evaluate_circuits()

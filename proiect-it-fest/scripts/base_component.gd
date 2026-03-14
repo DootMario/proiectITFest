@@ -14,8 +14,7 @@ var wire_start: Marker2D = null
 var temp_wire: Line2D = null
 var sprite : AnimatedSprite2D = null
 var cons :int
-var current_voltage := 0.0
-var debug_label: Label
+
 # Terminals
 @export var terminal_left: Marker2D
 @export var terminal_right: Marker2D
@@ -32,11 +31,7 @@ func _ready() -> void:
 	sprite = $AnimatedSprite2D
 	cons = 0
 	sprite.frame = 0
-	# Create a debug label automatically
-	debug_label = Label.new()
-	add_child(debug_label)
-	debug_label.position = Vector2(-20, -50) # Adjust these numbers if it blocks your sprite
-	debug_label.text = "0V"
+	
 func _exit_tree() -> void:
 	GridManager.unregister(self)
 
@@ -88,9 +83,9 @@ func create_wire(from: Marker2D, to: Marker2D) -> void:
 	wire.term_b = to
 	wire.add_to_group("wires")
 	get_tree().current_scene.add_child(wire)
-	
-	# Call it directly. If this causes an error, your Autoload isn't set up right.
 	CircuitManager.evaluate_circuits()
+	# Just call it directly
+	
 func update_connected_wires() -> void:
 	for wire in get_tree().get_nodes_in_group("wires"):
 		if wire.term_a in [terminal_left, terminal_right] or wire.term_b in [terminal_left, terminal_right]:
