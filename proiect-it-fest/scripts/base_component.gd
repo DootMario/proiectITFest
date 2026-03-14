@@ -92,6 +92,9 @@ func update_connected_wires() -> void:
 			wire.update_wire()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_id: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		_put_back_in_inventory()
+		return # Stop processing further inputs for this click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos = get_global_mouse_position()
 
@@ -136,3 +139,25 @@ func check_wire():
 
 func is_busy() -> bool:
 	return dragging or wiring
+	
+func _put_back_in_inventory() -> void:
+	# 1. Tell the level to add the item back to the UI
+	if has_meta("scene_path"):
+		var scene_path = get_meta("scene_path")
+		get_tree().call_group("level", "return_item", scene_path)
+	
+	# 2. Clean up any dangling wires connected to this component
+	_remove_connected_wires()
+	
+	# 3. Trigger a circuit evaluation before we delete ourselves
+	if CircuitManager.has_method("evaluate_circuits"):
+		CircuitManager.evaluate_circuits()
+		
+	# 4. Remove the component from the board
+	queue_free()
+
+func _remove_connected_wires() -> void:
+	for wire in get_tree().get_nodes_in_group("wires"):
+		# Check if either end of the wire is connected to our terminals
+		if wire.term_a in [terminal_left, terminal_right] or wire.term_b in [terminal_left, terminal_right]:
+			wire.queue_free()
