@@ -16,7 +16,11 @@ func _ready() -> void:
 	anod = $Anodm
 	catod = $Catodp
 	# snaping sistem
-	global_position = GridManager.snap(global_position)
+	GridManager.register(self)
+	
+	
+func _exit_tree() -> void:
+	GridManager.unregister(self)
 	
 	
 func init(volts: float)->void:
@@ -97,14 +101,14 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_id: int):
 				end_wire(mouse_pos)
 			dragging = false
 			#snapping sistem
-			global_position = GridManager.snap(global_position)
+			global_position = GridManager.snap(self)
 			update_cons()
 			
 			
 func _input(event: InputEvent) -> void:
 	if dragging and event is InputEventMouseMotion:
 		var target = get_global_mouse_position()+drag_offset
-		global_position = target
+		GridManager.move(self, target)
 		update_cons()
 	if wiring and event is InputEventMouseMotion:
 		continue_wire(get_global_mouse_position())
