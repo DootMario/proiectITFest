@@ -1,5 +1,11 @@
 extends Area2D
 
+# Electrical properties
+@export var is_battery := false
+@export var voltage_output := 0.0
+@export var voltage_required := 0.0
+var is_powered := false
+
 # Common state
 var dragging := false
 var drag_offset := Vector2.ZERO
@@ -9,26 +15,26 @@ var temp_wire: Line2D = null
 var sprite : AnimatedSprite2D = null
 var cons :int
 
-
 # Terminals
 @export var terminal_left: Marker2D
 @export var terminal_right: Marker2D
-
 
 const CLICK_TOLERANCE := 10.0
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
 	GridManager.register(self)
+	
+	# Registering to the new manager group
+	add_to_group("components") 
+	
 	sprite = $AnimatedSprite2D
 	cons = 0
-	sprite.frame=0
-
+	sprite.frame = 0
+	
 func _exit_tree() -> void:
-	# when killed
 	GridManager.unregister(self)
 
-# find terminal near pos
 func get_terminal_at(pos: Vector2) -> Marker2D:
 	var all_terminals = get_tree().get_nodes_in_group("terminals")
 	var closest: Marker2D = null
@@ -40,7 +46,6 @@ func get_terminal_at(pos: Vector2) -> Marker2D:
 			closest = t
 	return closest
 
-# draw wire
 func start_wire(start: Marker2D) -> void:
 	wiring = true
 	wire_start = start
@@ -51,19 +56,16 @@ func start_wire(start: Marker2D) -> void:
 	temp_wire.add_point(wire_start.global_position)
 	get_tree().current_scene.add_child(temp_wire)
 
-# update wire drag
 func continue_wire(end_pos: Vector2) -> void:
 	if temp_wire and temp_wire.points.size() == 2:
 		temp_wire.set_point_position(1, end_pos)
 
-# check duality
 func connection_exists(a: Marker2D, b: Marker2D) -> bool:
 	for wire in get_tree().get_nodes_in_group("wires"):
 		if (wire.term_a == a and wire.term_b == b) or (wire.term_a == b and wire.term_b == a):
 			return true
 	return false
 
-# set wire
 func end_wire(release_pos: Vector2) -> void:
 	var end_mark = get_terminal_at(release_pos)
 	if end_mark and end_mark != wire_start and not connection_exists(wire_start, end_mark):
@@ -74,7 +76,6 @@ func end_wire(release_pos: Vector2) -> void:
 	wiring = false
 	wire_start = null
 
-# wire generator
 func create_wire(from: Marker2D, to: Marker2D) -> void:
 	var wire_scene = preload("res://scenes/wire.tscn")
 	var wire = wire_scene.instantiate()
@@ -82,24 +83,19 @@ func create_wire(from: Marker2D, to: Marker2D) -> void:
 	wire.term_b = to
 	wire.add_to_group("wires")
 	get_tree().current_scene.add_child(wire)
-	sprite.frame=1
-	to.get_parent().sprite.frame=1
-	cons+=1
-	to.get_parent().cons+=1
-
-# update all wires attached to this component
+	CircuitManager.evaluate_circuits()
+	# Just call it directly
+	
 func update_connected_wires() -> void:
 	for wire in get_tree().get_nodes_in_group("wires"):
 		if wire.term_a in [terminal_left, terminal_right] or wire.term_b in [terminal_left, terminal_right]:
 			wire.update_wire()
-
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_id: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos = get_global_mouse_position()
 
 		if event.pressed:
-			# Prevent interaction if any other component is busy (dragging/wiring)
 			for cell in GridManager.cell_to_node:
 				var other = GridManager.cell_to_node[cell]
 				if is_instance_valid(other) and other != self and other.has_method("is_busy") and other.is_busy():
@@ -116,11 +112,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_id: int) -> void:
 			if wiring:
 				end_wire(mouse_pos)
 			dragging = false
-			# grid snaping
 			global_position = GridManager.snap(self)
 			update_connected_wires()
 	if Input.is_action_just_pressed("rotate_block"):
-		rotation+=PI/2
+		rotation += PI/2
 
 func _input(event: InputEvent) -> void:
 	if dragging and event is InputEventMouseMotion:
@@ -139,6 +134,5 @@ func check_wire():
 		return true
 	return false
 
-# check status
 func is_busy() -> bool:
 	return dragging or wiring
