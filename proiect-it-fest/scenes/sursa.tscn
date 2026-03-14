@@ -17,8 +17,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Sursa" type="Area2D" unique_id=1182129977]
+[node name="Sursa" type="Area2D" unique_id=1182129977 node_paths=PackedStringArray("terminal_left", "terminal_right")]
 script = ExtResource("1_o1jp1")
+terminal_left = NodePath("Anodm")
+terminal_right = NodePath("Catodp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701502048]
 shape = SubResource("RectangleShape2D_xa3iq")

@@ -21,8 +21,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmxif"]
 size = Vector2(19, 19)
 
-[node name="Corner" type="Area2D" unique_id=2016170285]
+[node name="s" type="Area2D" unique_id=2016170285 node_paths=PackedStringArray("terminal_left", "terminal_right")]
 script = ExtResource("1_5gap4")
+terminal_left = NodePath("Con1")
+terminal_right = NodePath("Con2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1119139315]
 sprite_frames = SubResource("SpriteFrames_2ri4k")
