@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjpoi8tgq1uuo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6ctk"]
-bg_color = Color(0.7245206, 0.48326963, 0.28079548, 1)
+bg_color = Color(0.7761385, 0.45233315, 0.20165113, 1)
 
 [node name="InventoryBar" type="CanvasLayer" unique_id=1037446870]
 
