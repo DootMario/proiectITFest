@@ -1,13 +1,41 @@
 [gd_scene format=3 uid="uid://bpq6nkgki6vf7"]
 
 [ext_resource type="PackedScene" uid="uid://c3tcqln4leb03" path="res://scenes/grid.tscn" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://blcow0wlhdtp1" path="res://scenes/level.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c0t0b76qx10ec" path="res://scenes/rezist.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://5a1mssp8yude" path="res://scenes/paning_camera.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cpavt6s1fmqwr" path="res://scenes/sursa.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b0xujhf3ig3mg" path="res://scenes/red_led.tscn" id="5_gee14"]
+[ext_resource type="PackedScene" uid="uid://ctecm6tm8ef0l" path="res://scenes/sursa_mare.tscn" id="6_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://b8qf8ib0pypr2" path="res://scenes/green_led.tscn" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c2ux7pv8ex7pf" path="res://scenes/switch.tscn" id="7_gee14"]
 
 [node name="Game" type="Node2D" unique_id=57844600]
 
 [node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("3_lnu2h")]
 
+[node name="Rezist" parent="." unique_id=402071729 instance=ExtResource("2_p57ef")]
+
 [node name="Grid" parent="." unique_id=2071597713 instance=ExtResource("1_yqjtg")]
 
-[node name="Level" parent="." unique_id=2068069766 instance=ExtResource("3_lbhrr")]
+[node name="Sursa" parent="." unique_id=1182129977 instance=ExtResource("4_u5sy4")]
+position = Vector2(-69, 31)
+
+[node name="RedLED" parent="." unique_id=450884269 instance=ExtResource("5_gee14")]
+position = Vector2(36, -57)
+
+[node name="Green_LED" parent="." unique_id=580264055 instance=ExtResource("6_u5sy4")]
+position = Vector2(-3, -5)
+
+[node name="Switch" parent="." unique_id=1210687197 instance=ExtResource("7_gee14")]
+position = Vector2(41, -6)
+
+[node name="SursaMare" parent="." unique_id=1863410743 instance=ExtResource("6_0tnpc")]
+position = Vector2(-35, -42)
+is_battery = true
+voltage_output = 18.0
+
+[node name="Rezist2" parent="." unique_id=2009485005 instance=ExtResource("2_p57ef")]
+position = Vector2(78, 32)
+
+[node name="Sursa2" parent="." unique_id=878684221 instance=ExtResource("4_u5sy4")]
+position = Vector2(-83, -12)

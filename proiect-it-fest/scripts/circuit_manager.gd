@@ -16,7 +16,8 @@ func evaluate_circuits() -> void:
 
 	for comp in components:
 		comp.is_powered = false
-
+		if "is_blown" in comp:
+			comp.is_blown=false
 	var graph = {}
 
 	# 1. Grab and physically sort the terminals
@@ -129,12 +130,39 @@ func evaluate_circuits() -> void:
 				loop_req_voltage += comp.voltage_required
 
 		var display_voltage = abs(total_voltage)
+		
+		# 1. Check for open switches first
+		for comp in components_in_loop:
+			if comp.get("is_switch") and not comp.is_closed:
+				display_voltage = 0.0 # The bridge is up, no power gets through
+		
+		# 2. Apply the resistors to cut the power
+		for comp in components_in_loop:
+			if comp.get("is_resistor"):
+				display_voltage = display_voltage / 2.0
+
 		print("Ring! Power: ", display_voltage, "V | Required: ", loop_req_voltage, "V")
 		
+		# 3. Check for exact matches or blowouts
 		for comp in components_in_loop:
-			if not comp.get("is_battery"):
-				if display_voltage > 0.0 and display_voltage >= loop_req_voltage:
-					comp.is_powered = true
-					
-	# Unlock the door so it can run again later
+			if not comp.get("is_battery") and not comp.get("is_resistor") and not comp.get("is_switch"):
+				if display_voltage > 0.0:
+					if display_voltage > loop_req_voltage + 0.1:
+						comp.is_blown = true
+					elif abs(display_voltage - loop_req_voltage) < 0.1:
+						comp.is_powered = true
+
+		print("Ring! Power: ", display_voltage, "V | Required: ", loop_req_voltage, "V")
+		
+		# 2. Check for exact voltage matches
+		# 2. Check for exact voltage matches or blowouts
+		for comp in components_in_loop:
+			if not comp.get("is_battery") and not comp.get("is_resistor"):
+				if display_voltage > 0.0:
+					# If the power is too high, it blows out
+					if display_voltage > loop_req_voltage + 0.1:
+						comp.is_blown = true
+					# If it exactly matches, turn it on
+					elif abs(display_voltage - loop_req_voltage) < 0.1:
+						comp.is_powered = true
 	is_evaluating = false

@@ -1,11 +1,10 @@
 extends "res://scripts/base_component.gd"
 
+var is_resistor := false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	CLICK_TOLERANCE=7.0
+	is_resistor = true
 func _process(delta: float) -> void:
 	pass

@@ -5,7 +5,7 @@ extends Area2D
 @export var voltage_output := 0.0
 @export var voltage_required := 0.0
 var is_powered := false
-
+var is_blown:=false
 # Common state
 var dragging := false
 var drag_offset := Vector2.ZERO
@@ -19,7 +19,7 @@ var cons :int
 @export var terminal_left: Marker2D
 @export var terminal_right: Marker2D
 
-const CLICK_TOLERANCE := 10.0
+var CLICK_TOLERANCE := 10.0
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
