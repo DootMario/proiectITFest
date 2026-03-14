@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://wcdyqtsmxj03" path="res://scripts/corner.gd" id="1_5gap4"]
 [ext_resource type="Texture2D" uid="uid://cga2b6o1eo0b8" path="res://assets/dragndrops.png" id="2_jimjf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmxif"]
+size = Vector2(19, 19)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v15t"]
 atlas = ExtResource("2_jimjf")
 region = Rect2(96, 0, 32, 32)
@@ -18,20 +21,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmxif"]
-size = Vector2(19, 19)
-
-[node name="s" type="Area2D" unique_id=2016170285 node_paths=PackedStringArray("terminal_left", "terminal_right")]
+[node name="corner" type="Area2D" unique_id=2016170285 node_paths=PackedStringArray("terminal_left", "terminal_right")]
 script = ExtResource("1_5gap4")
 terminal_left = NodePath("Con1")
 terminal_right = NodePath("Con2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1119139315]
-sprite_frames = SubResource("SpriteFrames_2ri4k")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842742419]
 position = Vector2(6.5, 6.5)
 shape = SubResource("RectangleShape2D_lmxif")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1119139315]
+sprite_frames = SubResource("SpriteFrames_2ri4k")
 
 [node name="Con1" type="Marker2D" parent="." unique_id=1237294784 groups=["terminals"]]
 position = Vector2(16, 0)

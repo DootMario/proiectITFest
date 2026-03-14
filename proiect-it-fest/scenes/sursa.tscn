@@ -1,18 +1,29 @@
 [gd_scene format=3 uid="uid://cpavt6s1fmqwr"]
 
 [ext_resource type="Script" uid="uid://c2aq1k8eogcoj" path="res://scripts/sursa.gd" id="1_o1jp1"]
-[ext_resource type="Texture2D" uid="uid://deorrfym3bq4m" path="res://assets/baterie_mica2.png" id="2_en0xd"]
+[ext_resource type="Texture2D" uid="uid://cga2b6o1eo0b8" path="res://assets/dragndrops.png" id="2_en0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3iq"]
 size = Vector2(19, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_i0exa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0exa"]
+atlas = ExtResource("2_en0xd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf5sx"]
+atlas = ExtResource("2_en0xd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gy4te"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_en0xd")
+"texture": SubResource("AtlasTexture_i0exa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf5sx")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -27,7 +38,7 @@ shape = SubResource("RectangleShape2D_xa3iq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1661422853]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_i0exa")
+sprite_frames = SubResource("SpriteFrames_gy4te")
 
 [node name="Anodm" type="Marker2D" parent="." unique_id=1020873962 groups=["terminals"]]
 position = Vector2(0, 16)

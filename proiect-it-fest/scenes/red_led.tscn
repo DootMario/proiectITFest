@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b0xujhf3ig3mg"]
+
+[ext_resource type="Script" uid="uid://dmnelaei40kdt" path="res://scripts/red_led.gd" id="1_vi377"]
+[ext_resource type="Texture2D" uid="uid://cga2b6o1eo0b8" path="res://assets/dragndrops.png" id="2_oyq03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70tkn"]
+size = Vector2(28, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrmlv"]
+atlas = ExtResource("2_oyq03")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqqgx"]
+atlas = ExtResource("2_oyq03")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd27a"]
+atlas = ExtResource("2_oyq03")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf544"]
+atlas = ExtResource("2_oyq03")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgwem"]
+atlas = ExtResource("2_oyq03")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hub5h"]
+atlas = ExtResource("2_oyq03")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq1ql"]
+atlas = ExtResource("2_oyq03")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4aeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrmlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqqgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd27a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf544")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgwem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hub5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq1ql")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RedLED" type="Area2D" unique_id=402071729 node_paths=PackedStringArray("terminal_left", "terminal_right")]
+script = ExtResource("1_vi377")
+terminal_left = NodePath("Con1")
+terminal_right = NodePath("Con2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=947342910]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_70tkn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1962585673]
+sprite_frames = SubResource("SpriteFrames_p4aeq")
+
+[node name="Con1" type="Marker2D" parent="." unique_id=1111185255 groups=["terminals"]]
+position = Vector2(-7, 11)
+
+[node name="Con2" type="Marker2D" parent="." unique_id=600109608 groups=["terminals"]]
+position = Vector2(7, 11)

@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://c3tcqln4leb03" path="res://scenes/grid.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://5a1mssp8yude" path="res://scenes/paning_camera.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cyptrhwb4y5mj" path="res://scenes/corner.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b0xujhf3ig3mg" path="res://scenes/red_led.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D" unique_id=57844600]
+
+[node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("3_lnu2h")]
 
 [node name="Grid" parent="." unique_id=2071597713 instance=ExtResource("1_yqjtg")]
 
@@ -17,6 +20,8 @@ position = Vector2(52, 0)
 [node name="Corner" parent="." unique_id=2016170285 instance=ExtResource("4_lbhrr")]
 position = Vector2(6, -57)
 
-[node name="s" parent="." unique_id=1342949210 instance=ExtResource("4_lbhrr")]
+[node name="corner" parent="." unique_id=1721756392 instance=ExtResource("4_lbhrr")]
+position = Vector2(-26, -24)
 
-[node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("3_lnu2h")]
+[node name="RedLED" parent="." unique_id=402071729 instance=ExtResource("5_iywne")]
+position = Vector2(-81, -77)

@@ -31,7 +31,7 @@ func snap(node: Node2D) -> Vector2:
 	var old_cell = node_to_cell.get(node)
 	var target_cell = grid_layer.local_to_map(node.global_position)
 
-	# If target cell is free (or the node already there), move to it.
+	# free cell or occupied by node itself
 	if not cell_to_node.has(target_cell) or cell_to_node[target_cell] == node:
 		if old_cell != null and old_cell != target_cell:
 			cell_to_node.erase(old_cell)
@@ -39,7 +39,6 @@ func snap(node: Node2D) -> Vector2:
 		node_to_cell[node] = target_cell
 		return grid_layer.map_to_local(target_cell)
 
-	# Target cell is occupied – stay in old cell
 	if old_cell != null:
 		return grid_layer.map_to_local(old_cell)
 	return node.global_position

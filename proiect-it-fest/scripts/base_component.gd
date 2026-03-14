@@ -6,6 +6,8 @@ var drag_offset := Vector2.ZERO
 var wiring := false
 var wire_start: Marker2D = null
 var temp_wire: Line2D = null
+var sprite : AnimatedSprite2D = null
+var cons :int
 
 # Terminals – assign in the scene (two Marker2D children)
 @export var terminal_left: Marker2D
@@ -16,11 +18,15 @@ const CLICK_TOLERANCE := 10.0
 func _ready() -> void:
 	input_event.connect(_on_input_event)
 	GridManager.register(self)
+	sprite = $AnimatedSprite2D
+	cons = 0
+	sprite.frame=0
 
 func _exit_tree() -> void:
+	# when killed
 	GridManager.unregister(self)
 
-# Find which terminal (if any) is near a given world position
+# find terminal near pos
 func get_terminal_at(pos: Vector2) -> Marker2D:
 	var all_terminals = get_tree().get_nodes_in_group("terminals")
 	var closest: Marker2D = null
@@ -32,7 +38,7 @@ func get_terminal_at(pos: Vector2) -> Marker2D:
 			closest = t
 	return closest
 
-# Start drawing a wire from a terminal
+# draw wire
 func start_wire(start: Marker2D) -> void:
 	wiring = true
 	wire_start = start
@@ -43,19 +49,19 @@ func start_wire(start: Marker2D) -> void:
 	temp_wire.add_point(wire_start.global_position)
 	get_tree().current_scene.add_child(temp_wire)
 
-# Update the temporary wire while mouse moves
+# update wire drag
 func continue_wire(end_pos: Vector2) -> void:
 	if temp_wire and temp_wire.points.size() == 2:
 		temp_wire.set_point_position(1, end_pos)
 
-# Check if a wire already exists between two terminals
+# check duality
 func connection_exists(a: Marker2D, b: Marker2D) -> bool:
 	for wire in get_tree().get_nodes_in_group("wires"):
 		if (wire.term_a == a and wire.term_b == b) or (wire.term_a == b and wire.term_b == a):
 			return true
 	return false
 
-# Finish drawing: create a permanent wire if conditions are met
+# set wire
 func end_wire(release_pos: Vector2) -> void:
 	var end_mark = get_terminal_at(release_pos)
 	if end_mark and end_mark != wire_start and not connection_exists(wire_start, end_mark):
@@ -66,7 +72,7 @@ func end_wire(release_pos: Vector2) -> void:
 	wiring = false
 	wire_start = null
 
-# Override this in child classes to create a wire with custom data (e.g., voltage)
+# wire generator
 func create_wire(from: Marker2D, to: Marker2D) -> void:
 	var wire_scene = preload("res://scenes/wire.tscn")
 	var wire = wire_scene.instantiate()
@@ -74,14 +80,18 @@ func create_wire(from: Marker2D, to: Marker2D) -> void:
 	wire.term_b = to
 	wire.add_to_group("wires")
 	get_tree().current_scene.add_child(wire)
+	sprite.frame=1
+	to.get_parent().sprite.frame=1
+	cons+=1
+	to.get_parent().cons+=1
 
-# Update all wires attached to this component’s terminals
+# update all wires attached to this component
 func update_connected_wires() -> void:
 	for wire in get_tree().get_nodes_in_group("wires"):
 		if wire.term_a in [terminal_left, terminal_right] or wire.term_b in [terminal_left, terminal_right]:
 			wire.update_wire()
 
-# Called when the component itself is clicked
+
 func _on_input_event(viewport: Node, event: InputEvent, shape_id: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var mouse_pos = get_global_mouse_position()
@@ -97,21 +107,19 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_id: int) -> void:
 			if clicked_term:
 				start_wire(clicked_term)
 				return
-
-			# Start dragging the component
+				
 			dragging = true
 			drag_offset = global_position - mouse_pos
 		else:
 			if wiring:
 				end_wire(mouse_pos)
 			dragging = false
-			# Snap to grid after release
+			# grid snaping
 			global_position = GridManager.snap(self)
 			update_connected_wires()
 	if Input.is_action_just_pressed("rotate_block"):
 		rotation+=PI/2
 
-# Global input handling (mouse motion, release anywhere)
 func _input(event: InputEvent) -> void:
 	if dragging and event is InputEventMouseMotion:
 		var target = get_global_mouse_position() + drag_offset
@@ -123,7 +131,12 @@ func _input(event: InputEvent) -> void:
 		if wiring:
 			end_wire(get_global_mouse_position())
 		wiring = false
+		
+func check_wire():
+	if cons == 1:
+		return true
+	return false
 
-# Helper for other components to check if this one is busy
+# check status
 func is_busy() -> bool:
 	return dragging or wiring

@@ -11,3 +11,7 @@ func create_wire(from: Marker2D, to: Marker2D) -> void:
 	wire.voltage = voltage
 	wire.add_to_group("wires")
 	get_tree().current_scene.add_child(wire)
+	sprite.frame=1
+	to.get_parent().sprite.frame=1
+	cons+=1
+	to.get_parent().cons+=1

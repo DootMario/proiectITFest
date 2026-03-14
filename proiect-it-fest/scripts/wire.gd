@@ -4,7 +4,7 @@ var term_a: Marker2D
 var term_b: Marker2D
 var voltage: float = 0.0
 
-var thickness := 20.0
+var thickness := 32.0
 var area: Area2D
 var collision_polygon: CollisionPolygon2D
 
@@ -36,4 +36,12 @@ func update_collision_polygon():
 
 func _on_area_input(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		term_a.get_parent().cons-=1
+		term_b.get_parent().cons-=1
+		print(term_a.get_parent().cons)
+		if not term_a.get_parent().cons==1:
+			term_a.get_parent().sprite.frame=0
+		print(term_b.get_parent().cons)
+		if not term_b.get_parent().cons:
+			term_b.get_parent().sprite.frame=0
 		queue_free()
