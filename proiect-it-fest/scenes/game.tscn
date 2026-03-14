@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://bpq6nkgki6vf7"]
 
-[ext_resource type="PackedScene" uid="uid://cpavt6s1fmqwr" path="res://scenes/sursa.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://c3tcqln4leb03" path="res://scenes/grid.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://blcow0wlhdtp1" path="res://scenes/level.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://5a1mssp8yude" path="res://scenes/paning_camera.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://cyptrhwb4y5mj" path="res://scenes/corner.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://b0xujhf3ig3mg" path="res://scenes/red_led.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://b8qf8ib0pypr2" path="res://scenes/green_led.tscn" id="5_p57ef"]
 
 [node name="Game" type="Node2D" unique_id=57844600]
 
@@ -13,23 +10,4 @@
 
 [node name="Grid" parent="." unique_id=2071597713 instance=ExtResource("1_yqjtg")]
 
-[node name="Sursa" parent="." unique_id=1182129977 instance=ExtResource("1_uwrxv")]
-
-[node name="Sursa2" parent="." unique_id=2112382604 instance=ExtResource("1_uwrxv")]
-position = Vector2(52, 0)
-
-[node name="Corner" parent="." unique_id=2016170285 instance=ExtResource("4_lbhrr")]
-position = Vector2(6, -57)
-
-[node name="corner" parent="." unique_id=1721756392 instance=ExtResource("4_lbhrr")]
-position = Vector2(-26, -24)
-
-[node name="Green_LED" parent="." unique_id=402071729 instance=ExtResource("5_p57ef")]
-position = Vector2(-83, -56)
-voltage_required = 0.0
-
-[node name="RedLED" parent="." unique_id=820265490 instance=ExtResource("5_iywne")]
-position = Vector2(-60, 31)
-
-[node name="Sursa3" parent="." unique_id=351839854 instance=ExtResource("1_uwrxv")]
-position = Vector2(-21, 39)
+[node name="Level" parent="." unique_id=2068069766 instance=ExtResource("3_lbhrr")]
