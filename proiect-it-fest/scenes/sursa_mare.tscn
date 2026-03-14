@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ctecm6tm8ef0l"]
+
+[ext_resource type="PackedScene" uid="uid://cpavt6s1fmqwr" path="res://scenes/sursa.tscn" id="1_k6vod"]
+[ext_resource type="Script" uid="uid://cmrjd58teevek" path="res://scripts/sursa_mare.gd" id="2_ivmrk"]
+[ext_resource type="Texture2D" uid="uid://cga2b6o1eo0b8" path="res://assets/dragndrops.png" id="3_8qilw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi0c7"]
+atlas = ExtResource("3_8qilw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xceyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi0c7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SursaMare" unique_id=1182129977 instance=ExtResource("1_k6vod")]
+script = ExtResource("2_ivmrk")
+is_battery = false
+voltage_output = 0.0
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1661422853]
+sprite_frames = SubResource("SpriteFrames_xceyf")
+
+[node name="Anodm" parent="." index="2" unique_id=1020873962]
+position = Vector2(0, 15)
+
+[node name="Catodp" parent="." index="3" unique_id=1814133978]
+position = Vector2(0, -15)

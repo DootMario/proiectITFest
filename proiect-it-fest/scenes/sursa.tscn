@@ -6,24 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3iq"]
 size = Vector2(19, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0exa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_en0xd"]
 atlas = ExtResource("2_en0xd")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qf5sx"]
-atlas = ExtResource("2_en0xd")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gy4te"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0exa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i0exa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qf5sx")
+"texture": SubResource("AtlasTexture_en0xd")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -40,7 +33,7 @@ shape = SubResource("RectangleShape2D_xa3iq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1661422853]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_gy4te")
+sprite_frames = SubResource("SpriteFrames_i0exa")
 
 [node name="Anodm" type="Marker2D" parent="." unique_id=1020873962 groups=["terminals"]]
 position = Vector2(0, 16)

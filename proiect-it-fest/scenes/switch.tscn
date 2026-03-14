@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c2ux7pv8ex7pf"]
+
+[ext_resource type="PackedScene" uid="uid://cpavt6s1fmqwr" path="res://scenes/sursa.tscn" id="1_nnoiq"]
+[ext_resource type="Script" uid="uid://d0sdjap3l2v60" path="res://scripts/switch.gd" id="2_4m6b1"]
+[ext_resource type="Texture2D" uid="uid://cwn05kfxcnkbf" path="res://assets/switch.png" id="3_w78pk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny1gh"]
+atlas = ExtResource("3_w78pk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0a5h"]
+atlas = ExtResource("3_w78pk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ri5u6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny1gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0a5h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Switch" unique_id=1182129977 instance=ExtResource("1_nnoiq")]
+script = ExtResource("2_4m6b1")
+is_battery = false
+voltage_output = 0.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1701502048]
+position = Vector2(0, -2)
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1661422853]
+sprite_frames = SubResource("SpriteFrames_ri5u6")
+
+[node name="Anodm" parent="." index="2" unique_id=1020873962]
+position = Vector2(-11, 0)
+
+[node name="Catodp" parent="." index="3" unique_id=1814133978]
+position = Vector2(14, 0)

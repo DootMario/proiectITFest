@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cnra12nrn6v5c"]
+
+[ext_resource type="PackedScene" uid="uid://cyptrhwb4y5mj" path="res://scenes/corner.tscn" id="1_5tfeo"]
+[ext_resource type="Script" uid="uid://be5q47ce5o3wf" path="res://scripts/join.gd" id="2_dokxw"]
+[ext_resource type="Texture2D" uid="uid://byh04lekbnd13" path="res://assets/tjoint.png" id="3_32rw3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpqt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_32rw3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Join" unique_id=2016170285 node_paths=PackedStringArray("terminal_top") instance=ExtResource("1_5tfeo")]
+script = ExtResource("2_dokxw")
+terminal_top = NodePath("Con3")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=842742419]
+position = Vector2(0, 0)
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1119139315]
+sprite_frames = SubResource("SpriteFrames_cpqt5")
+
+[node name="Con3" type="Marker2D" parent="." index="4" unique_id=1532427080 groups=["terminals"]]
+position = Vector2(0, -16)

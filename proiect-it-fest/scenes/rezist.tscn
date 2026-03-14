@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c0t0b76qx10ec"]
+
+[ext_resource type="PackedScene" uid="uid://b0xujhf3ig3mg" path="res://scenes/red_led.tscn" id="1_u4n11"]
+[ext_resource type="Script" uid="uid://cbqxkhpdiwkhx" path="res://scripts/rezist.gd" id="2_ayheh"]
+[ext_resource type="Texture2D" uid="uid://b1n66an84l4ra" path="res://assets/resistor.png" id="2_nfyue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayheh"]
+atlas = ExtResource("2_nfyue")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0g43v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayheh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Rezist" unique_id=402071729 instance=ExtResource("1_u4n11")]
+script = ExtResource("2_ayheh")
+voltage_required = 0.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=947342910]
+position = Vector2(0, 0)
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1962585673]
+sprite_frames = SubResource("SpriteFrames_0g43v")
+
+[node name="Con1" parent="." index="2" unique_id=1111185255]
+position = Vector2(-10, 0)
+
+[node name="Con2" parent="." index="3" unique_id=600109608]
+position = Vector2(10, 0)
