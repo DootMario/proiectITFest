@@ -30,6 +30,8 @@ animations = [{
 
 [node name="Sursa" type="Area2D" unique_id=1182129977 node_paths=PackedStringArray("terminal_left", "terminal_right")]
 script = ExtResource("1_o1jp1")
+is_battery = true
+voltage_output = 9.0
 terminal_left = NodePath("Anodm")
 terminal_right = NodePath("Catodp")
 

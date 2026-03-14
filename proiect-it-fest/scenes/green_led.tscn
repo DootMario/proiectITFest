@@ -63,6 +63,7 @@ animations = [{
 
 [node name="Green_LED" unique_id=402071729 instance=ExtResource("1_h7fqc")]
 script = ExtResource("2_sitn4")
+voltage_required = 18.0
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1962585673]
 sprite_frames = SubResource("SpriteFrames_o2si5")

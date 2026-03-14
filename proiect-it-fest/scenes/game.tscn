@@ -26,6 +26,7 @@ position = Vector2(-26, -24)
 
 [node name="Green_LED" parent="." unique_id=402071729 instance=ExtResource("5_p57ef")]
 position = Vector2(-83, -56)
+voltage_required = 0.0
 
 [node name="RedLED" parent="." unique_id=820265490 instance=ExtResource("5_iywne")]
 position = Vector2(-60, 31)

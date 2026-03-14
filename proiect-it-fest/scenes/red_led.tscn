@@ -65,6 +65,7 @@ animations = [{
 
 [node name="RedLED" type="Area2D" unique_id=402071729 node_paths=PackedStringArray("terminal_left", "terminal_right")]
 script = ExtResource("1_vi377")
+voltage_required = 9.0
 terminal_left = NodePath("Con1")
 terminal_right = NodePath("Con2")
 

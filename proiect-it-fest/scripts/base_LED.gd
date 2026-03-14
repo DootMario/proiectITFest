@@ -1,6 +1,6 @@
 extends "res://scripts/base_component.gd"
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_powered:
+		sprite.frame = 6 # Assuming frame 1 is 'on'
+	else:
+		sprite.frame = 0 # Assuming frame 0 is 'off'
