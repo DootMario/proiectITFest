@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GridManager="*uid://dkiidi1j4ym8w"
 GameState="*uid://d1x3lccsfm52s"
+CircuitManager="*uid://bof06yrxfip4p"
 
 [input]
 
