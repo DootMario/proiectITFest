@@ -1,7 +1,6 @@
 extends Node
 
 var grid_layer : TileMapLayer
-#This is the dictionary your sursa.gd script is looking for
 var occupied_cells := {}
 
 func _ready() -> void:

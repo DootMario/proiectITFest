@@ -6,15 +6,15 @@ const TOLERANCE := 10.0
 var wiring := false
 var wire_start : Marker2D = null
 var temp_wire : Line2D = null
-var anod : Marker2D
-var catod : Marker2D
+var con1 : Marker2D
+var con2 : Marker2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	input_event.connect(_on_input_event)
-	anod = $Anodm
-	catod = $Catodp
+	con1 = $Con1
+	con2 = $Con2
 	# snaping sistem
 	GridManager.register(self)
 	
@@ -82,7 +82,7 @@ func create_perm_wire(from: Marker2D, to: Marker2D):
 func update_cons():
 	var cons = get_tree().get_nodes_in_group("wires")
 	for connection in cons:
-		if connection.term_a == anod or connection.term_a == catod or connection.term_b == anod or connection.term_b == catod:
+		if connection.term_a == con1 or connection.term_a == con2 or connection.term_b == con1 or connection.term_b == con2:
 			connection.update_wire()
 	
 	

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://deorrfym3bq4m" path="res://assets/baterie_mica2.png" id="2_en0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3iq"]
-size = Vector2(20, 30)
+size = Vector2(19, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i0exa"]
 animations = [{
@@ -28,7 +28,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_i0exa")
 
 [node name="Anodm" type="Marker2D" parent="." unique_id=1020873962 groups=["terminals"]]
-position = Vector2(0, 15)
+position = Vector2(0, 16)
 
 [node name="Catodp" type="Marker2D" parent="." unique_id=1814133978 groups=["terminals"]]
-position = Vector2(0, -15)
+position = Vector2(0, -16)
