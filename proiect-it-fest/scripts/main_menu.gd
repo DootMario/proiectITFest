@@ -1,7 +1,7 @@
 extends Control
 
 # Referințe către noduri
-@onready var buton = $Button
+@onready var buton = $Electrical/Button
 @onready var curent = $Electricalcompleted2
 @onready var sunet_click = $SunetClick
 
@@ -10,6 +10,8 @@ var text_activ = "T\nR\nA\nT\nS"
 var este_activat = false
 
 func _ready():
+	#get_window().min_size = Vector2(curent.texture.get_size().x, curent.text.get_size().y)
+	get_window().min_size = Vector2(1152, 648)
 	# 1. Starea inițială
 	curent.visible = false
 	curent.modulate.a = 0
