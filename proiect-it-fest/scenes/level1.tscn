@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ky1t1djo85hb"]
+
+[ext_resource type="PackedScene" uid="uid://blcow0wlhdtp1" path="res://scenes/level.tscn" id="1_g2h75"]
+[ext_resource type="Script" uid="uid://mjksercpui6s" path="res://scenes/level_1.gd" id="2_wwpf4"]
+[ext_resource type="Script" uid="uid://b36y0xerd0noa" path="res://scenes/paning_camera.gd" id="3_m7ahb"]
+
+[node name="Level" unique_id=2068069766 instance=ExtResource("1_g2h75")]
+script = ExtResource("2_wwpf4")
+
+[node name="paningCamera" parent="." index="3" unique_id=853510291]
+script = ExtResource("3_m7ahb")

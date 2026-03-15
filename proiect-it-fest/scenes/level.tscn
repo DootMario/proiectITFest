@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b4xjlror15uhj" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://cjpoi8tgq1uuo" path="res://ui/inventory_bar.tscn" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://0k0a6fx4ip0d" path="res://ui/journal_ui.tscn" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://c3tcqln4leb03" path="res://scenes/grid.tscn" id="4_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://5a1mssp8yude" path="res://scenes/paning_camera.tscn" id="5_2r41h"]
 
 [node name="Level" type="Node2D" unique_id=2068069766]
 script = ExtResource("1_2q6dc")
@@ -10,3 +12,7 @@ script = ExtResource("1_2q6dc")
 [node name="InventoryBar" parent="." unique_id=1037446870 instance=ExtResource("2_w7c3h")]
 
 [node name="Journal_UI" parent="." unique_id=181825677 instance=ExtResource("3_w8frs")]
+
+[node name="Grid" parent="." unique_id=2071597713 instance=ExtResource("4_ppgk2")]
+
+[node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("5_2r41h")]

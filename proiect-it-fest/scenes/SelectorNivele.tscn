@@ -1,0 +1,323 @@
+[gd_scene format=3 uid="uid://cu64ktvsaocc3"]
+
+[ext_resource type="Script" uid="uid://bjo5c84567dsg" path="res://scripts/selector_nivele.gd" id="1_68i3w"]
+[ext_resource type="Texture2D" uid="uid://0wajuysm3pnn" path="res://assets/Logotype/fixwiretask.png" id="2_68i3w"]
+[ext_resource type="AudioStream" uid="uid://cyb1nglgak034" path="res://assets/wrong-answer-3.mp3" id="4_b31w3"]
+[ext_resource type="Texture2D" uid="uid://ckbsp8460mlaa" path="res://assets/Button/Rect/Fill/Default.png" id="5_lfdj1"]
+[ext_resource type="Texture2D" uid="uid://cd0gdbv0tyjbl" path="res://assets/Bar/background circuit.jpg" id="6_2lai2"]
+[ext_resource type="Texture2D" uid="uid://ps1hldpaah8y" path="res://assets/Bar/fixwiretask2.png" id="6_f4m8f"]
+[ext_resource type="Texture2D" uid="uid://dly7u10o24ltg" path="res://assets/Logotype/NameBack.png" id="7_f4m8f"]
+[ext_resource type="FontFile" uid="uid://derwqd4gd3mlw" path="res://assets/Monocraft-nerd-fonts-patched.ttc" id="8_knphp"]
+
+[node name="WiringTask" type="Control" unique_id=1255576322]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_68i3w")
+
+[node name="BackgroundCircuit" type="Sprite2D" parent="." unique_id=1027048671]
+position = Vector2(718, 393.00003)
+scale = Vector2(0.8276041, 1.1057943)
+texture = ExtResource("6_2lai2")
+
+[node name="Fixwiretask" type="Sprite2D" parent="." unique_id=511757385]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(2.9072988, 2.6978066)
+texture = ExtResource("2_68i3w")
+metadata/culoare = "red"
+
+[node name="Fixwiretask2" type="Sprite2D" parent="." unique_id=1702035517]
+position = Vector2(576.00006, 321)
+scale = Vector2(2.8993287, 2.7248318)
+texture = ExtResource("6_f4m8f")
+
+[node name="PuncteStanga" type="Node2D" parent="." unique_id=466005494]
+
+[node name="red_S" type="ColorRect" parent="PuncteStanga" unique_id=692603812]
+visible = false
+offset_left = 133.0
+offset_top = 62.0
+offset_right = 255.0
+offset_bottom = 98.0
+pivot_offset = Vector2(61, 18)
+mouse_filter = 1
+color = Color(0.9607843, 0.007843138, 0.019607844, 1)
+metadata/culoare = "red"
+
+[node name="green_S" type="ColorRect" parent="PuncteStanga" unique_id=967994715]
+visible = false
+offset_left = 131.0
+offset_top = 135.0
+offset_right = 253.0
+offset_bottom = 171.0
+mouse_filter = 1
+color = Color(0.20246077, 0.61380595, 0, 1)
+metadata/culoare = "red"
+
+[node name="yellow_S" type="ColorRect" parent="PuncteStanga" unique_id=1641917479]
+visible = false
+offset_left = 136.0
+offset_top = 229.0
+offset_right = 254.0
+offset_bottom = 264.0
+mouse_filter = 1
+color = Color(0.9882353, 0.9137255, 0.015686275, 1)
+metadata/culoare = "yellow"
+
+[node name="grey_S" type="ColorRect" parent="PuncteStanga" unique_id=1817085892]
+visible = false
+offset_left = 134.0
+offset_top = 298.0
+offset_right = 252.0
+offset_bottom = 333.0
+mouse_filter = 1
+color = Color(0.79648876, 0.8052647, 0.75831264, 1)
+metadata/culoare = "yellow"
+
+[node name="cyan_S" type="ColorRect" parent="PuncteStanga" unique_id=1908124848]
+visible = false
+offset_left = 141.0
+offset_top = 398.0
+offset_right = 261.0
+offset_bottom = 435.0
+mouse_filter = 1
+color = Color(0, 0.52417046, 0.60520446, 1)
+metadata/culoare = "pink"
+
+[node name="pink_S" type="ColorRect" parent="PuncteStanga" unique_id=1243220735]
+visible = false
+offset_left = 134.0
+offset_top = 465.0
+offset_right = 254.0
+offset_bottom = 502.0
+mouse_filter = 1
+color = Color(0.98039216, 0.003921569, 0.96862745, 1)
+metadata/culoare = "pink"
+
+[node name="blue_S" type="ColorRect" parent="PuncteStanga" unique_id=509228778]
+visible = false
+offset_left = 139.0
+offset_top = 565.0
+offset_right = 250.0
+offset_bottom = 601.0
+mouse_filter = 1
+color = Color(0.14509805, 0.15294118, 0.9764706, 1)
+metadata/culoare = "blue"
+
+[node name="PuncteDreapta" type="Node2D" parent="." unique_id=1138111559]
+visible = false
+position = Vector2(-24, -5)
+
+[node name="red_D" type="ColorRect" parent="PuncteDreapta" unique_id=1150525772]
+visible = false
+offset_left = 883.0
+offset_top = 67.0
+offset_right = 1032.0
+offset_bottom = 107.0
+mouse_filter = 1
+color = Color(0.9607843, 0.007843138, 0.019607844, 1)
+metadata/culoare = "red"
+
+[node name="grey_D" type="ColorRect" parent="PuncteDreapta" unique_id=797177704]
+visible = false
+offset_left = 886.0
+offset_top = 146.0
+offset_right = 1035.0
+offset_bottom = 186.0
+mouse_filter = 1
+color = Color(0.5665624, 0.7103981, 0.6481554, 1)
+metadata/culoare = "red"
+
+[node name="blue_D" type="ColorRect" parent="PuncteDreapta" unique_id=2106795086]
+visible = false
+offset_left = 888.0
+offset_top = 237.0
+offset_right = 1036.0
+offset_bottom = 273.0
+mouse_filter = 1
+color = Color(0.14901961, 0.15294118, 0.99215686, 1)
+metadata/culoare = "blue"
+
+[node name="green_D" type="ColorRect" parent="PuncteDreapta" unique_id=1094764406]
+visible = false
+offset_left = 890.0
+offset_top = 310.0
+offset_right = 1038.0
+offset_bottom = 346.0
+mouse_filter = 1
+color = Color(0.071916334, 0.44365716, 0, 1)
+metadata/culoare = "blue"
+
+[node name="yellow_D" type="ColorRect" parent="PuncteDreapta" unique_id=295319922]
+visible = false
+offset_left = 878.0
+offset_top = 402.0
+offset_right = 1034.0
+offset_bottom = 437.0
+mouse_filter = 1
+color = Color(0.99607843, 0.91764706, 0.011764706, 1)
+metadata/culoare = "yellow"
+
+[node name="cyan_D" type="ColorRect" parent="PuncteDreapta" unique_id=753121987]
+visible = false
+offset_left = 879.0
+offset_top = 476.0
+offset_right = 1035.0
+offset_bottom = 511.0
+mouse_filter = 1
+color = Color(0.04323837, 0.69425035, 0.73917735, 1)
+metadata/culoare = "yellow"
+
+[node name="pink_D" type="ColorRect" parent="PuncteDreapta" unique_id=579559053]
+visible = false
+offset_left = 881.0
+offset_top = 567.0
+offset_right = 1035.0
+offset_bottom = 604.0
+mouse_filter = 1
+color = Color(1, 0.003921569, 1, 1)
+metadata/culoare = "pink"
+
+[node name="CurrentLine" type="Line2D" parent="." unique_id=135261224]
+z_index = 10
+width = 30.0
+default_color = Color(1, 0.26597753, 0.45352662, 1)
+
+[node name="SunetEroare" type="AudioStreamPlayer2D" parent="." unique_id=1545650578]
+stream = ExtResource("4_b31w3")
+
+[node name="Default" type="Sprite2D" parent="." unique_id=693786393]
+position = Vector2(116, 77)
+scale = Vector2(0.29073507, 0.4880953)
+texture = ExtResource("5_lfdj1")
+
+[node name="Default2" type="Sprite2D" parent="." unique_id=579410281]
+position = Vector2(116, 150)
+scale = Vector2(0.29073507, 0.4880953)
+texture = ExtResource("5_lfdj1")
+
+[node name="Default3" type="Sprite2D" parent="." unique_id=197685410]
+position = Vector2(117, 246.00002)
+scale = Vector2(0.29073507, 0.4880953)
+texture = ExtResource("5_lfdj1")
+
+[node name="Default4" type="Sprite2D" parent="." unique_id=1277066885]
+position = Vector2(117, 316)
+scale = Vector2(0.29073507, 0.4880953)
+texture = ExtResource("5_lfdj1")
+
+[node name="Default5" type="Sprite2D" parent="." unique_id=799712641]
+position = Vector2(117.99999, 415)
+scale = Vector2(0.29073507, 0.4880953)
+texture = ExtResource("5_lfdj1")
+
+[node name="Default6" type="Sprite2D" parent="." unique_id=1056283702]
+position = Vector2(116, 481)
+scale = Vector2(0.29073507, 0.4880953)
+texture = ExtResource("5_lfdj1")
+
+[node name="Default7" type="Sprite2D" parent="." unique_id=1338120462]
+position = Vector2(116, 585)
+scale = Vector2(0.29073507, 0.4880953)
+texture = ExtResource("5_lfdj1")
+
+[node name="NameBack" type="Sprite2D" parent="." unique_id=762131352]
+position = Vector2(77, 24)
+scale = Vector2(0.33865255, 0.33865252)
+texture = ExtResource("7_f4m8f")
+
+[node name="Label" type="Label" parent="NameBack" unique_id=97384188]
+offset_left = -203.74866
+offset_top = -64.96334
+offset_right = 197.84286
+offset_bottom = 45.474335
+theme_override_colors/font_color = Color(0.91069204, 0.8226305, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "Nivele"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="NameBack" unique_id=998223318]
+offset_left = 53.151817
+offset_top = 100.397896
+offset_right = 186.03137
+offset_bottom = 197.84293
+theme_override_colors/font_color = Color(0.49688584, 0.44753534, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="NameBack" unique_id=494094072]
+offset_left = 56.1047
+offset_top = 318.91095
+offset_right = 188.98425
+offset_bottom = 416.356
+theme_override_colors/font_color = Color(0.49688584, 0.44753534, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="NameBack" unique_id=1663358976]
+offset_left = 56.1047
+offset_top = 602.3874
+offset_right = 188.98425
+offset_bottom = 699.8324
+theme_override_colors/font_color = Color(0.49688584, 0.44753534, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="NameBack" unique_id=1033153770]
+offset_left = 59.05758
+offset_top = 809.08887
+offset_right = 191.93713
+offset_bottom = 906.5339
+theme_override_colors/font_color = Color(0.49688584, 0.44753534, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="NameBack" unique_id=44084332]
+offset_left = 62.01046
+offset_top = 1095.5182
+offset_right = 194.89001
+offset_bottom = 1192.9631
+theme_override_colors/font_color = Color(0.49688584, 0.44753534, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="NameBack" unique_id=1079965575]
+offset_left = 59.05758
+offset_top = 1296.314
+offset_right = 191.93713
+offset_bottom = 1393.7589
+theme_override_colors/font_color = Color(0.49688584, 0.44753534, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="NameBack" unique_id=1791520885]
+offset_left = 56.1047
+offset_top = 1597.5076
+offset_right = 188.98425
+offset_bottom = 1694.9525
+theme_override_colors/font_color = Color(0.49688584, 0.44753534, 0, 1)
+theme_override_fonts/font = ExtResource("8_knphp")
+theme_override_font_sizes/font_size = 50
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1

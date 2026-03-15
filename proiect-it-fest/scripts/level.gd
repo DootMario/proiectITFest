@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 var items = []
 
 func _ready():
