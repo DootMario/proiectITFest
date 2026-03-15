@@ -21,7 +21,10 @@ func _unhandled_input(event):
 func _process(delta: float) -> void:
 	for child in get_children():
 		if child.scene_file_path == "res://scenes/red_led.tscn" and child.sprite.frame==6:
-			$Journal_UI.set_guide_text("Puzzle Solved! LED is turned on!")
+			$Journal_UI.update_and_open("Puzzle Solved! LED is turned on!")
 			set_process(false)
+			await get_tree().create_timer(1.5).timeout
+			if Global.nivel_maxim_deblocat<2:
+				Global.nivel_maxim_deblocat=2
 			get_tree().change_scene_to_file("res://scenes/SelectorNivele.tscn")
 		

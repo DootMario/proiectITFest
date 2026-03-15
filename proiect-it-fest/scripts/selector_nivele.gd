@@ -143,11 +143,11 @@ func _creeaza_fir_fix(nume_cul):
 		line.add_point(centru_D)
 
 func _schimba_scena(cul):
-	if ordine_nivele.has(cul):
-		if ordine_nivele[cul] == Global.nivel_maxim_deblocat:
-			Global.nivel_maxim_deblocat += 1
-	
 	await get_tree().create_timer(0.5).timeout
 	
 	if nivele.has(cul):
 		get_tree().change_scene_to_file(nivele[cul])
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

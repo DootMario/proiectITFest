@@ -27,6 +27,9 @@ func _process(delta: float) -> void:
 			if component.is_connected_to_both():
 				for bulb in get_tree().get_nodes_in_group("components"):
 					if bulb.scene_file_path == "res://scenes/red_led.tscn" and bulb.sprite.frame==6:
-						$Journal_UI.set_guide_text("Puzzle Solved! Switch is wired to both Sursa and LED.")
+						$Journal_UI.update_and_open("Puzzle Solved! Switch is wired to both Sursa and LED.")
 						set_process(false)
+						await get_tree().create_timer(1.5).timeout
+						if Global.nivel_maxim_deblocat<3:
+							Global.nivel_maxim_deblocat=3
 						get_tree().change_scene_to_file("res://scenes/SelectorNivele.tscn")

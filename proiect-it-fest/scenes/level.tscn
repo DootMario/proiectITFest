@@ -13,6 +13,22 @@ script = ExtResource("1_2q6dc")
 
 [node name="Journal_UI" parent="." unique_id=181825677 instance=ExtResource("3_w8frs")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1792683440]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1647087759]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+
 [node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("5_2r41h")]
 
 [node name="Grid" parent="." unique_id=551322638 instance=ExtResource("4_ppgk2")]
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_back_button_pressed"]

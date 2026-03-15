@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ps1hldpaah8y" path="res://assets/Bar/fixwiretask2.png" id="6_f4m8f"]
 [ext_resource type="Texture2D" uid="uid://dly7u10o24ltg" path="res://assets/Logotype/NameBack.png" id="7_f4m8f"]
 [ext_resource type="FontFile" uid="uid://derwqd4gd3mlw" path="res://assets/Monocraft-nerd-fonts-patched.ttc" id="8_knphp"]
+[ext_resource type="Script" uid="uid://bf4l5amv8ibet" path="res://scripts/exit_button.gd" id="9_5v2b8"]
 
 [node name="WiringTask" type="Control" unique_id=1255576322]
 layout_mode = 3
@@ -321,3 +322,21 @@ theme_override_font_sizes/font_size = 50
 text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=560211773]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 532.0
+offset_top = 586.0
+offset_right = 584.0
+offset_bottom = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+script = ExtResource("9_5v2b8")
+
+[connection signal="pressed" from="Button" to="." method="_on_quit_button_pressed"]

@@ -21,8 +21,7 @@ animations = [{
 
 [node name="SursaMare" unique_id=1182129977 instance=ExtResource("1_k6vod")]
 script = ExtResource("2_ivmrk")
-is_battery = false
-voltage_output = 0.0
+voltage_output = 18.0
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1661422853]
 sprite_frames = SubResource("SpriteFrames_xceyf")

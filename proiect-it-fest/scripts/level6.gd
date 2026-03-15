@@ -28,6 +28,9 @@ func _process(delta: float) -> void:
 		if (bulb.scene_file_path=="res://scenes/red_led.tscn" and bulb.sprite.frame==6) or (bulb.scene_file_path=="res://scenes/green_led.tscn" and bulb.sprite.frame==6):
 			bulbs +=1
 	if bulbs==2:
-		$Journal_UI.set_guide_text("They are holding hands <3...")
+		$Journal_UI.update_and_open("They are holding hands <3...")
 		set_process(false)
+		await get_tree().create_timer(1.5).timeout
+		if Global.nivel_maxim_deblocat<7:
+				Global.nivel_maxim_deblocat=7
 		get_tree().change_scene_to_file("res://scenes/SelectorNivele.tscn")

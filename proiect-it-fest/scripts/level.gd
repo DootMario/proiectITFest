@@ -58,3 +58,7 @@ func return_item(scene_path: String) -> void:
 			item["count"] += 1
 			$InventoryBar.refresh_slots()
 			break
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/SelectorNivele.tscn")

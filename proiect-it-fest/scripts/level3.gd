@@ -24,6 +24,9 @@ func _unhandled_input(event):
 func _process(delta: float) -> void:
 	for bulb in get_tree().get_nodes_in_group("components"):
 		if bulb.scene_file_path=="res://scenes/red_led.tscn" and bulb.sprite.frame==6:
-			$Journal_UI.set_guide_text("Congratulations!")
+			$Journal_UI.update_and_open("Congratulations!")
 			set_process(false)
+			await get_tree().create_timer(1.5).timeout 
+			if Global.nivel_maxim_deblocat<4:
+				Global.nivel_maxim_deblocat=4
 			get_tree().change_scene_to_file("res://scenes/SelectorNivele.tscn")
