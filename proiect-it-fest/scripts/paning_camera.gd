@@ -3,15 +3,17 @@ extends Camera2D
 
 var move_speed:=300
 var zoom_speed:=0.1
-var min_zoom:=0.5
+var min_zoom:=2.0
 var max_zoom:=4.0
-var max_mvmt:=256
+var max_mvmt:=64
 var start_pos: Vector2
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_pos=position
+	zoom.x = clamp(zoom.x, min_zoom, max_zoom)
+	zoom.y = clamp(zoom.y, min_zoom, max_zoom)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
