@@ -11,7 +11,9 @@ func _ready():
 		{"name": "Red LED", "scene": "res://scenes/red_led.tscn", "count": 5}
 	]
 	$InventoryBar.set_items(items)
-
+	if has_node("Journal_UI"):
+		$Journal_UI.set_guide_text("Puzzle 1:\nConnect the Battery to the Red LED using the wire tool to restore power.")
+	
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if GameState.selected_scene_path == "":

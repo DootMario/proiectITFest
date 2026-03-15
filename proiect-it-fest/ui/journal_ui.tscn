@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://0k0a6fx4ip0d"]
+
+[ext_resource type="Script" uid="uid://5epds42cl1yc" path="res://ui/journal_ui.gd" id="1_arpl6"]
+
+[node name="Journal_UI" type="CanvasLayer" unique_id=181825677]
+script = ExtResource("1_arpl6")
+
+[node name="Toggle" type="Button" parent="." unique_id=2075567757]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+text = "Open Journal
+"
+
+[node name="JournalPanel" type="Panel" parent="." unique_id=979965032]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -208.0
+offset_right = 266.0
+offset_bottom = -31.0
+grow_vertical = 0
+
+[node name="GuideText" type="RichTextLabel" parent="JournalPanel" unique_id=1890478094]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fit_content = true
