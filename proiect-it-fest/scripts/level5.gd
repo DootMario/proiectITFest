@@ -8,11 +8,11 @@ func _ready() -> void:
 	
 	items = [
 		{"name": "Battery", "scene": "res://scenes/sursa.tscn", "count": 2},
-		{"name": "Green LED", "scene": "res://scenes/green_led.tscn", "count": 1}
+		{"name": "Red LED", "scene": "res://scenes/red_led.tscn", "count": 1}
 	]
 	$InventoryBar.set_items(items)
 	if has_node("Journal_UI"):
-		$Journal_UI.set_guide_text("Puzzle 4:\n.Now the LED seems to need more power, luckly we have more batteries, just put them in series [one connected to the next].")
+		$Journal_UI.set_guide_text("Puzzle 5:\n.I dont like this LED, lets break it! [LEDs have an upper voltage limit, go over it and they break]")
 
 
 func _unhandled_input(event):
@@ -22,7 +22,7 @@ func _unhandled_input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for bulb in get_tree().get_nodes_in_group("components"):
-		if bulb.scene_file_path=="res://scenes/green_led.tscn" and bulb.sprite.frame==6:
-			$Journal_UI.set_guide_text("I knew you could do it!")
+		if bulb.scene_file_path=="res://scenes/red_led.tscn" and bulb.sprite.frame==4:
+			$Journal_UI.set_guide_text("He had it coming...")
 			set_process(false)
 			get_tree().change_scene_to_file("res://scenes/SelectorNivele.tscn")

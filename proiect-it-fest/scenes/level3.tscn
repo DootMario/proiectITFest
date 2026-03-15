@@ -5,5 +5,3 @@
 
 [node name="Level" unique_id=2068069766 instance=ExtResource("1_yesqi")]
 script = ExtResource("2_qyetb")
-
-[node name="Grid" parent="." index="2" unique_id=2071597713 groups=["grid"]]
