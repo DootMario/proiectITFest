@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dvwl6uv1i6q1y"]
+
+[ext_resource type="PackedScene" uid="uid://blcow0wlhdtp1" path="res://scenes/level.tscn" id="1_yesqi"]
+[ext_resource type="Script" uid="uid://b61rgojnblusd" path="res://scripts/level3.gd" id="2_qyetb"]
+
+[node name="Level" unique_id=2068069766 instance=ExtResource("1_yesqi")]
+script = ExtResource("2_qyetb")
+
+[node name="Grid" parent="." index="2" unique_id=2071597713 groups=["grid"]]

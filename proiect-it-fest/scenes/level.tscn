@@ -13,6 +13,6 @@ script = ExtResource("1_2q6dc")
 
 [node name="Journal_UI" parent="." unique_id=181825677 instance=ExtResource("3_w8frs")]
 
-[node name="Grid" parent="." unique_id=2071597713 instance=ExtResource("4_ppgk2")]
-
 [node name="paningCamera" parent="." unique_id=853510291 instance=ExtResource("5_2r41h")]
+
+[node name="Grid" parent="." unique_id=551322638 instance=ExtResource("4_ppgk2")]

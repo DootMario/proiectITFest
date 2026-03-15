@@ -32,3 +32,33 @@ func _input(event: InputEvent) -> void:
 			
 		# Call the math directly without the broken safety check
 		CircuitManager.evaluate_circuits()
+		
+func is_connected_to_both() -> bool:
+	var connected_to_sursa = false
+	var connected_to_led = false
+	
+	# Loop through all wires in the level
+	for wire in get_tree().get_nodes_in_group("wires"):
+		var other_terminal: Marker2D = null
+		
+		# Check if the wire is connected to either of the switch's terminals
+		if wire.term_a in [terminal_left, terminal_right]:
+			other_terminal = wire.term_b # The other end is term_b
+		elif wire.term_b in [terminal_left, terminal_right]:
+			other_terminal = wire.term_a # The other end is term_a
+			
+		# If the wire is attached to this switch, let's identify what's on the other side
+		if other_terminal != null:
+			# Get the component node that owns this terminal
+			var other_component = other_terminal.get_parent()
+			
+			# Check if it's a Sursa/Battery
+			if other_component.get("is_battery") == true:
+				connected_to_sursa = true
+				
+			# Check if it's a Red LED (Checks the file it was spawned from)
+			if other_component.scene_file_path != null and "red_led.tscn" in other_component.scene_file_path:
+				connected_to_led = true
+				
+	# Return true ONLY if we found both!
+	return connected_to_sursa and connected_to_led

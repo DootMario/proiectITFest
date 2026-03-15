@@ -1,11 +1,11 @@
 extends Node2D
 
 
-
 var items = []
 
 func _ready():
 	# NEW: Add this level to a group so components can easily find it
+	GridManager.clear_grid()
 	add_to_group("level") 
 	
 	items = [
@@ -42,6 +42,7 @@ func _unhandled_input(event):
 		
 		# NEW: Tag the instance with its scene path so it knows what it is later
 		instance.set_meta("scene_path", GameState.selected_scene_path)
+		instance.add_to_group("components")
 		
 		add_child(instance)
 		
@@ -50,7 +51,7 @@ func _unhandled_input(event):
 
 		GameState.selected_scene_path = ""
 
-# NEW: Function that components will call when they are right-clicked
+
 func return_item(scene_path: String) -> void:
 	for item in items:
 		if item.get("scene") == scene_path:

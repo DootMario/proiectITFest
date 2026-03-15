@@ -17,10 +17,10 @@ func _ready():
 	area.input_event.connect(_on_area_input)
 	update_wire()
 
-# handle voltage transmission
-func supply(obj: Node):
-	pass
-	
+## handle voltage transmission
+#func supply(obj: Node):
+	#pass
+	#
 
 func update_wire():
 	if term_a and term_b:

@@ -36,12 +36,12 @@ var ordine_nivele = {
 # 5. Căile către scenele nivelelor
 var nivele = {
 	"red":"res://scenes/level1.tscn" ,
-	"green": "res://Level/level2.tscn",
-	"yellow": "res://Level/level3.tscn",
-	"grey": "res://Level/level4.tscn",
-	"cyan": "res://Level/level5.tscn",
-	"pink": "res://Level/level6.tscn",
-	"blue": "res://Level/level7.tscn"
+	"green": "res://scenes/level2.tscn",
+	"yellow": "res://scenes/level3.tscn",
+	"grey": "res://scenes/level4.tscn",
+	"cyan": "res://scenes/level5.tscn",
+	"pink": "res://scenes/level6.tscn",
+	"blue": "res://scenes/level7.tscn"
 }
 
 func _ready():
@@ -150,7 +150,4 @@ func _schimba_scena(cul):
 	await get_tree().create_timer(0.5).timeout
 	
 	if nivele.has(cul):
-		if has_node("/root/Transitioner"):
-			get_node("/root/Transitioner").transition_to(nivele[cul])
-		else:
-			get_tree().change_scene_to_file(nivele[cul])
+		get_tree().change_scene_to_file(nivele[cul])

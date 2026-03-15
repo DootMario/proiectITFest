@@ -5,7 +5,14 @@ var cell_to_node: Dictionary = {}   # Vector2i -> Node2D
 var node_to_cell: Dictionary = {}   # Node2D -> Vector2i
 
 func _ready() -> void:
-	grid_layer = get_tree().get_first_node_in_group("grid")
+	print("init")
+	grid_layer = get_tree().get_nodes_in_group("grid").back()
+	
+func clear_grid() -> void:
+	cell_to_node.clear()
+	node_to_cell.clear()
+	grid_layer = get_tree().get_nodes_in_group("grid").back()
+	print("level"+str(Global.nivel_maxim_deblocat))
 
 func register(node: Node2D) -> void:
 	if not grid_layer:
