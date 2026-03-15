@@ -24,10 +24,14 @@ func _unhandled_input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var bulbs := 0
+	var together :=0
 	for bulb in get_tree().get_nodes_in_group("components"):
 		if (bulb.scene_file_path=="res://scenes/red_led.tscn" and bulb.sprite.frame==6) or (bulb.scene_file_path=="res://scenes/green_led.tscn" and bulb.sprite.frame==6):
 			bulbs +=1
-	if bulbs==2:
+	for wire in get_tree().get_nodes_in_group("wires"):
+		if (wire.term_a.get_parent().scene_file_path=="res://scenes/red_led.tscn" and wire.term_b.get_parent().scene_file_path=="res://scenes/green_led.tscn") or (wire.term_a.get_parent().scene_file_path=="res://scenes/red_led.tscn" and wire.term_b.get_parent().scene_file_path=="res://scenes/green_led.tscn"):
+			together = 1
+	if bulbs==2 and together==1:
 		$Journal_UI.update_and_open("They are holding hands <3...")
 		set_process(false)
 		await get_tree().create_timer(1.5).timeout

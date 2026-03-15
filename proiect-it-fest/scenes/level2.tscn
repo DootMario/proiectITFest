@@ -5,3 +5,15 @@
 
 [node name="Level" unique_id=2068069766 instance=ExtResource("1_if4l3")]
 script = ExtResource("2_if4l3")
+
+[node name="Label" type="Label" parent="CanvasLayer" parent_id_path=PackedInt32Array(1792683440) index="1" unique_id=298594376]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 50.0
+offset_right = 70.0
+offset_bottom = 73.0
+grow_horizontal = 2
+text = "Switch It Up:
+Control the light with a switch"
