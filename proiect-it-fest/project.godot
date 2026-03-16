@@ -22,6 +22,10 @@ GameState="*uid://d1x3lccsfm52s"
 CircuitManager="*uid://bof06yrxfip4p"
 Global="*uid://b2fpbsuyde4u6"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 camera_up={
